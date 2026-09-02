@@ -35,12 +35,6 @@ const useStyles = makeStyles({
     flex: 1,
     minWidth: 0,
   },
-  tag: {
-    display: "block",
-    fontSize: "11px",
-    color: tokens.colorBrandForeground2,
-    marginBottom: "3px",
-  },
   name: {
     display: "block",
     fontSize: "15px",
@@ -92,7 +86,6 @@ export default function ProductCard({ item }: ProductCardProps) {
         }
       />
       <div className={styles.info}>
-        <Text className={styles.tag}>{item.tag}</Text>
         <Text className={styles.name}>{item.name}</Text>
         <Text className={styles.note}>{item.note}</Text>
       </div>

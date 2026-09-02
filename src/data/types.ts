@@ -1,6 +1,7 @@
+import type { CategoryName } from "./categories";
+
 export type productCategories = {
   id: string;
-  tag?: string;
   name: string;
   note?: string;
   image: string;
@@ -8,7 +9,7 @@ export type productCategories = {
 };
 
 export type ProductCategory = {
-  category: string;
+  category: CategoryName;
   items: productCategories[];
 };
 
