@@ -1,0 +1,30 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 16px 80px;
+  position: relative;
+  overflow-x: hidden;
+  background: radial-gradient(ellipse 600px 300px at 15% -5%, rgba(185, 198, 255, 0.1), transparent 60%),
+    radial-gradient(ellipse 500px 400px at 90% 10%, rgba(154, 163, 178, 0.1), transparent 60%),
+    linear-gradient(180deg, #0a0a0e 0%, #0d0d13 40%, #0a0a0e 100%);
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, black, transparent 75%);
+  mask-image: radial-gradient(ellipse 100% 60% at 50% 0%, black, transparent 75%);
+  pointer-events: none;
+}

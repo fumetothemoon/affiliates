@@ -1,0 +1,25 @@
+{
+  "name": "affiliates",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fluentui/react-components": "^9.54.8",
+    "@fluentui/react-icons": "^2.0.257",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "typescript": "^7.0.2",
+    "vite": "^5.4.0"
+  }
+}
