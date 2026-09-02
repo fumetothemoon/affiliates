@@ -2,8 +2,8 @@ import { makeStyles } from "@fluentui/react-components";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductSection from "./components/ProductSection";
-import { profile } from "./data/profile.js";
-import { categories } from "./data/products.js";
+import { profile } from "./data/profile";
+import { categories } from "./data/products";
 
 const useStyles = makeStyles({
   page: {

@@ -1,6 +1,6 @@
 import { Divider, Text, makeStyles, tokens } from "@fluentui/react-components";
 import ProductCard from "./ProductCard";
-import type { ProductCategory } from "../types";
+import type { ProductCategory } from "../data/types";
 
 const useStyles = makeStyles({
   section: {

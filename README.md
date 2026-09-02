@@ -28,8 +28,8 @@ npm run preview   # Preview the production build locally
 
 Edit the data files to update page content:
 
-- `src/data/profile.js`: profile image, handle, taglines, and footer note.
-- `src/data/products.js`: product categories and product links.
+- `src/data/profile`: profile image, handle, taglines, and footer note.
+- `src/data/products`: product categories and product links.
 
 Each product uses the following fields:
 

@@ -1,6 +1,8 @@
 import avatarUrl from "../assets/avatar.jpg";
 
-export const profile = {
+import type { Profile } from "./types";
+
+export const profile: Profile = {
   handle: "@fumetothemoon",
   avatarUrl,
   tagline: "美甲愛用小物 · 分潤連結",

@@ -1,6 +1,6 @@
 import { Text, makeStyles, tokens } from "@fluentui/react-components";
 import { ArrowUpRight16Regular } from "@fluentui/react-icons";
-import type { productCategories } from "../types";
+import type { productCategories } from "../data/types";
 
 const useStyles = makeStyles({
   card: {
