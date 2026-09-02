@@ -4,18 +4,6 @@ import type { ProductCategory } from "./types";
 
 export const categories: ProductCategory[] = [
   {
-    category: CategoryName.Test,
-    items: [
-      {
-        id: "1",
-        name: "test item name",
-        note: "test note",
-        image: "",
-        link: "",
-      },
-    ],
-  },
-  {
     category: CategoryName.MustHave,
     items: [
       {
