@@ -17,9 +17,6 @@ const useStyles = makeStyles({
     zIndex: 1,
   },
   viewToggle: {
-    position: "absolute",
-    top: 0,
-    right: 0,
     minWidth: "36px",
     width: "36px",
     height: "36px",
@@ -37,19 +34,25 @@ export default function App() {
 
   return (
     <div className={styles.page}>
+      <Header profile={profile} />
       <Button
         className={styles.viewToggle}
         appearance="subtle"
         shape="circular"
         icon={view === "list" ? <GridRegular /> : <ListRegular />}
-        onClick={() => setView((current) => (current === "list" ? "gallery" : "list"))}
+        onClick={() =>
+          setView((current) => (current === "list" ? "gallery" : "list"))
+        }
         aria-label={
           view === "list" ? "Switch to gallery view" : "Switch to list view"
         }
       />
-      <Header profile={profile} />
       {categories.map((category) => (
-        <ProductSection key={category.category} category={category} view={view} />
+        <ProductSection
+          key={category.category}
+          category={category}
+          view={view}
+        />
       ))}
       <Footer profile={profile} />
     </div>
