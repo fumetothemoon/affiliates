@@ -1,11 +1,10 @@
-import { Text, makeStyles, tokens } from "@fluentui/react-components";
+import { Text, makeStyles, mergeClasses, tokens } from "@fluentui/react-components";
 import { ArrowUpRight16Regular } from "@fluentui/react-icons";
-import type { productCategories } from "../data/types";
+import type { productCategories, ViewMode } from "../data/types";
 
 const useStyles = makeStyles({
   card: {
     display: "flex",
-    flexDirection: "row",
     alignItems: "center",
     gap: "14px",
     padding: "12px",
@@ -21,15 +20,29 @@ const useStyles = makeStyles({
       backgroundImage: "linear-gradient(180deg, #1d1d26, #15151b)",
     },
   },
+  cardList: {
+    flexDirection: "row",
+  },
+  cardGallery: {
+    flexDirection: "column",
+    alignItems: "stretch",
+    gap: "10px",
+  },
   thumb: {
     flexShrink: 0,
-    width: "64px",
-    height: "64px",
     borderRadius: "12px",
     backgroundColor: "#0e0e12",
     backgroundSize: "cover",
     backgroundPosition: "center",
     border: `1px solid ${tokens.colorNeutralStroke1}`,
+  },
+  thumbList: {
+    width: "64px",
+    height: "64px",
+  },
+  thumbGallery: {
+    width: "100%",
+    aspectRatio: "1 / 1",
   },
   info: {
     flex: 1,
@@ -67,20 +80,28 @@ const useStyles = makeStyles({
 
 type ProductCardProps = {
   item: productCategories;
+  view: ViewMode;
 };
 
-export default function ProductCard({ item }: ProductCardProps) {
+export default function ProductCard({ item, view }: ProductCardProps) {
   const styles = useStyles();
+  const isGallery = view === "gallery";
 
   return (
     <a
       href={item.link}
       target="_blank"
       rel="noopener noreferrer sponsored"
-      className={styles.card}
+      className={mergeClasses(
+        styles.card,
+        isGallery ? styles.cardGallery : styles.cardList,
+      )}
     >
       <div
-        className={styles.thumb}
+        className={mergeClasses(
+          styles.thumb,
+          isGallery ? styles.thumbGallery : styles.thumbList,
+        )}
         style={
           item.image ? { backgroundImage: `url(${item.image})` } : undefined
         }
@@ -89,9 +110,11 @@ export default function ProductCard({ item }: ProductCardProps) {
         <Text className={styles.name}>{item.name}</Text>
         <Text className={styles.note}>{item.note}</Text>
       </div>
-      <div className={styles.arrow}>
-        <ArrowUpRight16Regular aria-hidden="true" />
-      </div>
+      {!isGallery && (
+        <div className={styles.arrow}>
+          <ArrowUpRight16Regular aria-hidden="true" />
+        </div>
+      )}
     </a>
   );
 }
