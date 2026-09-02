@@ -1,6 +1,6 @@
 import { Divider, Text, makeStyles, tokens } from "@fluentui/react-components";
 import ProductCard from "./ProductCard";
-import type { ProductCategory } from "../data/types";
+import type { ProductCategory, ViewMode } from "../data/types";
 
 const useStyles = makeStyles({
   section: {
@@ -16,14 +16,22 @@ const useStyles = makeStyles({
     display: "flex",
     flexDirection: "column",
     gap: "12px",
+    marginTop: "14px",
+  },
+  gallery: {
+    display: "grid",
+    gridTemplateColumns: "repeat(2, 1fr)",
+    gap: "12px",
+    marginTop: "14px",
   },
 });
 
 type ProductSectionProps = {
   category: ProductCategory;
+  view: ViewMode;
 };
 
-export default function ProductSection({ category }: ProductSectionProps) {
+export default function ProductSection({ category, view }: ProductSectionProps) {
   const styles = useStyles();
 
   return (
@@ -31,9 +39,9 @@ export default function ProductSection({ category }: ProductSectionProps) {
       <Divider alignContent="center">
         <Text className={styles.label}>{category.category}</Text>
       </Divider>
-      <div className={styles.list} style={{ marginTop: "14px" }}>
+      <div className={view === "gallery" ? styles.gallery : styles.list}>
         {category.items.map((item) => (
-          <ProductCard key={item.id} item={item} />
+          <ProductCard key={item.id} item={item} view={view} />
         ))}
       </div>
     </section>

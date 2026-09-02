@@ -20,3 +20,5 @@ export type Profile = {
   taglineSub: string;
   footerNote: string;
 };
+
+export type ViewMode = "list" | "gallery";
