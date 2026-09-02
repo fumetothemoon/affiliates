@@ -28,7 +28,7 @@ Do not infer the product name from the page; ask for it as a text input instead.
    - **Image** — a _free-form input_ question for the image URL. Tell the user to right-click the Shopee product photo and copy the image address (`https://down-tw.img.susercontent.com/file/<hash>`). An empty answer leaves `image` as `""`.
      Batch these questions into a single `#tool:vscode_askQuestions` call.
 3. Show the drafted object to the user and confirm the entered `name` looks right before writing.
-4. Insert the entry into the chosen category's `items` array, assigning `id` as the next sequential number **within that category** (as a string). Create the category object if it is new.
+4. Insert the entry at the end of the chosen category's `items` array. Generate `id` by taking the highest existing numeric `id` in that category and adding 1, stored as a string — e.g. last item `"3"` → new item `"4"`. A brand-new category starts at `"1"`. Create the category object if it is new.
 
 ## Output shape
 
@@ -36,7 +36,7 @@ Must match `productCategories` in [types.ts](../../src/data/types.ts):
 
 ```ts
 {
-  id: "<next sequential id in category>",
+  id: "<highest id in category + 1>",
   name: "<short product name>",
   note: "<user-supplied selling point>",
   image: "<image url>",
@@ -51,6 +51,7 @@ The enclosing category object uses `category: CategoryName.<Member>`.
 - Never fabricate `name` or `note`; always ask via `#tool:vscode_askQuestions`.
 - Never guess the category; always ask via `#tool:vscode_askQuestions` with a picker sourced from `CategoryName`.
 - Never try to fetch, scrape, or curl the Shopee page — it is blocked. `image` comes from the user only.
+- `id` is always the highest existing `id` in the target category plus 1 — never reuse or renumber existing ids, and never restart from `"1"` in a category that already has items.
 - `category` must be written as a `CategoryName` member (e.g. `CategoryName.MustHave`), never a raw string; adding a new one means editing [categories.ts](../../src/data/categories.ts) first.
 - All questions go through `#tool:vscode_askQuestions`, not plain chat prose.
 - Match the existing formatting and key order in [products.ts](../../src/data/products.ts).
