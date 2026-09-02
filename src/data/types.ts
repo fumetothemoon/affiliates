@@ -17,6 +17,7 @@ export type Profile = {
   handle: string;
   avatarUrl: string;
   tagline: string;
-  taglineSub: string;
+  taglineSub1: string;
+  taglineSub2: string;
   footerNote: string;
 };

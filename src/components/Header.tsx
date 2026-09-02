@@ -31,9 +31,18 @@ const useStyles = makeStyles({
   },
   tagline: {
     textAlign: "center",
+    color: "#ffffff",
+    fontSize: "18px",
+    lineHeight: "1.6",
+  },
+  taglineSub1: {
     color: tokens.colorNeutralForeground3,
     fontSize: "14px",
-    lineHeight: "1.6",
+  },
+  taglineSub2: {
+    color: tokens.colorNeutralForeground3,
+
+    fontSize: "12px",
   },
 });
 
@@ -49,7 +58,7 @@ export default function Header({ profile }: HeaderProps) {
       <div className={styles.avatarRing}>
         <Avatar
           size={96}
-          name={profile.handle}
+          name={"profile.handle"}
           image={profile.avatarUrl ? { src: profile.avatarUrl } : undefined}
         />
       </div>
@@ -59,7 +68,9 @@ export default function Header({ profile }: HeaderProps) {
       <Text className={styles.tagline}>
         {profile.tagline}
         <br />
-        {profile.taglineSub} <span aria-hidden="true">✦</span>
+        <span className={styles.taglineSub1}>{profile.taglineSub1}</span>
+        <br />
+        <span className={styles.taglineSub2}>{profile.taglineSub2}</span>
       </Text>
     </header>
   );
