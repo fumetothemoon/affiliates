@@ -81,7 +81,7 @@ export default function App() {
               className={styles.iconButton}
               appearance="subtle"
               shape="circular"
-              icon={<SearchRegular />}
+              icon={<SearchRegular aria-hidden="true" />}
               onClick={() => setSearchOpen(true)}
               aria-label="Search products"
             />
