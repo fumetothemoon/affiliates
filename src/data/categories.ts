@@ -7,7 +7,7 @@ export enum CategoryName {
 
 export enum CategoryDescription {
   MustHave = "用過一次就綁死(〃∀〃)",
-  FrequentlyUsed = "好用會再買 (不排除喜新厭舊",
+  FrequentlyUsed = "好用會再買 (不排除喜新厭舊)",
   LookingGood = "顏值太暈(*´∀`)~♥實力夠用就好",
 }
 
