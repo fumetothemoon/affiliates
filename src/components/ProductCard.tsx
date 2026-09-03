@@ -1,4 +1,9 @@
-import { Text, makeStyles, mergeClasses, tokens } from "@fluentui/react-components";
+import {
+  Text,
+  makeStyles,
+  mergeClasses,
+  tokens,
+} from "@fluentui/react-components";
 import { ArrowUpRight16Regular } from "@fluentui/react-icons";
 import type { productCategories, ViewMode } from "../data/types";
 
@@ -24,8 +29,7 @@ const useStyles = makeStyles({
     flexDirection: "row",
   },
   cardGallery: {
-    flexDirection: "column",
-    alignItems: "stretch",
+    display: "grid",
     gap: "10px",
   },
   thumb: {
@@ -58,12 +62,15 @@ const useStyles = makeStyles({
     textOverflow: "ellipsis",
   },
   note: {
-    display: "block",
+    display: "-webkit-box",
     fontSize: "12px",
     color: tokens.colorNeutralForeground3,
-    whiteSpace: "nowrap",
+    height: "36px",
+    lineHeight: "18px",
     overflow: "hidden",
     textOverflow: "ellipsis",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2,
   },
   arrow: {
     flexShrink: 0,
