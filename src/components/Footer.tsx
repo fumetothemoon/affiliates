@@ -1,5 +1,4 @@
 import { Text, makeStyles, tokens } from "@fluentui/react-components";
-import type { Profile } from "../data/types";
 
 const useStyles = makeStyles({
   footer: {
