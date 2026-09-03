@@ -31,7 +31,11 @@ type SearchBarProps = {
   onClose: () => void;
 };
 
-export default function SearchBar({ value, onChange, onClose }: SearchBarProps) {
+export default function SearchBar({
+  value,
+  onChange,
+  onClose,
+}: SearchBarProps) {
   const styles = useStyles();
 
   const handleChange: InputProps["onChange"] = (_event, data) => {
@@ -44,6 +48,7 @@ export default function SearchBar({ value, onChange, onClose }: SearchBarProps) 
         className={styles.input}
         contentBefore={<SearchRegular />}
         placeholder="搜尋商品名稱"
+        aria-label="Search"
         value={value}
         onChange={handleChange}
         autoFocus
