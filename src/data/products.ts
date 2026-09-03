@@ -1,10 +1,11 @@
 // Product catalog configuration
-import { CategoryName } from "./categories";
+import { CategoryName, CategoryDescription } from "./categories";
 import type { ProductCategory } from "./types";
 
 export const categories: ProductCategory[] = [
   {
     category: CategoryName.MustHave,
+    description: CategoryDescription.MustHave,
     items: [
       {
         id: "1",

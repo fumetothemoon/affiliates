@@ -66,11 +66,13 @@ export default function Header({ profile }: HeaderProps) {
         {profile.handle}
       </Text>
       <Text className={styles.tagline}>
-        {profile.tagline}
+        {"美甲愛用小物 · 分潤連結"}
         <br />
-        <span className={styles.taglineSub1}>{profile.taglineSub1}</span>
+        <span className={styles.taglineSub1}>{"✦ 點擊卡片直接購買 ✦"}</span>
         <br />
-        <span className={styles.taglineSub2}>{profile.taglineSub2}</span>
+        <span className={styles.taglineSub2}>
+          {"因為我用我自己的錢跟時間幫大家試用 所以當然要開分潤 d(`･∀･)b"}
+        </span>
       </Text>
     </header>
   );

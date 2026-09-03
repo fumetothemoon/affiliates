@@ -9,8 +9,13 @@ const useStyles = makeStyles({
   label: {
     fontSize: "13px",
     color: tokens.colorBrandForeground2,
-    marginBottom: "14px",
     display: "block",
+  },
+  description: {
+    display: "block",
+    textAlign: "center",
+    color: tokens.colorNeutralForeground3,
+    fontSize: "12px",
   },
   list: {
     display: "flex",
@@ -31,7 +36,10 @@ type ProductSectionProps = {
   view: ViewMode;
 };
 
-export default function ProductSection({ category, view }: ProductSectionProps) {
+export default function ProductSection({
+  category,
+  view,
+}: ProductSectionProps) {
   const styles = useStyles();
 
   return (
@@ -39,6 +47,7 @@ export default function ProductSection({ category, view }: ProductSectionProps) 
       <Divider alignContent="center">
         <Text className={styles.label}>{category.category}</Text>
       </Divider>
+      <Text className={styles.description}>{category.description}</Text>
       <div className={view === "gallery" ? styles.gallery : styles.list}>
         {category.items.map((item) => (
           <ProductCard key={item.id} item={item} view={view} />
