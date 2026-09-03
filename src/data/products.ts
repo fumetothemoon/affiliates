@@ -33,7 +33,7 @@ export const categories: ProductCategory[] = [
       },
       {
         id: "4",
-        name: " 美甲噴槍",
+        name: "美甲噴槍",
         note: "噴霧細膩 拿來做單色跟漸層都超快超好看 重點是機身也巨美",
         image:
           "https://down-tw.img.susercontent.com/file/8fec7836a378f5b106df27d1e83f66b6.webp",
