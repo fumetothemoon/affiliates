@@ -20,6 +20,7 @@ const useStyles = makeStyles({
     fontSize: "11px",
     color: tokens.colorNeutralForeground3,
     lineHeight: "1.7",
+    textAlign: "center",
   },
 });
 
@@ -31,7 +32,7 @@ export default function Footer() {
       <Text className={styles.note}>
         {"以上連結含分潤，購買時不會多花你任何費用，但會幫助我持續分享更多內容"}
         <br />
-        {"謝謝您的愛戴 (♡˙︶˙♡)"}
+        {"個人開發需要您的愛戴 (♡˙︶˙♡)"}
       </Text>
       <Text className={styles.handle}>{"@fumetothemoon"}</Text>
     </footer>
