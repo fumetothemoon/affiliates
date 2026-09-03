@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     color: tokens.colorBrandForeground2,
     letterSpacing: "1px",
     marginBottom: "8px",
+    textAlign: "center",
   },
   note: {
     display: "block",
@@ -22,17 +23,17 @@ const useStyles = makeStyles({
   },
 });
 
-type FooterProps = {
-  profile: Profile;
-};
-
-export default function Footer({ profile }: FooterProps) {
+export default function Footer() {
   const styles = useStyles();
 
   return (
     <footer className={styles.footer}>
-      <Text className={styles.handle}>{profile.handle}</Text>
-      <Text className={styles.note}>{profile.footerNote}</Text>
+      <Text className={styles.note}>
+        {"以上連結含分潤，購買時不會多花你任何費用，但會幫助我持續分享更多內容"}
+        <br />
+        {"謝謝您的愛戴 (♡˙︶˙♡)"}
+      </Text>
+      <Text className={styles.handle}>{"@fumetothemoon"}</Text>
     </footer>
   );
 }

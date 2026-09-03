@@ -43,7 +43,7 @@ const useStyles = makeStyles({
 
 export default function App() {
   const styles = useStyles();
-  const [view, setView] = useState<ViewMode>("list");
+  const [view, setView] = useState<ViewMode>("gallery");
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -94,7 +94,9 @@ export default function App() {
                 setView((current) => (current === "list" ? "gallery" : "list"))
               }
               aria-label={
-                view === "list" ? "Switch to gallery view" : "Switch to list view"
+                view === "list"
+                  ? "Switch to gallery view"
+                  : "Switch to list view"
               }
             />
           </>
@@ -104,10 +106,14 @@ export default function App() {
         <Text className={styles.noResults}>找不到符合的商品</Text>
       ) : (
         filteredCategories.map((category) => (
-          <ProductSection key={category.category} category={category} view={view} />
+          <ProductSection
+            key={category.category}
+            category={category}
+            view={view}
+          />
         ))
       )}
-      <Footer profile={profile} />
+      <Footer />
     </div>
   );
 }

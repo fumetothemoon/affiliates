@@ -1,4 +1,4 @@
-import type { CategoryName } from "./categories";
+import type { CategoryName, CategoryDescription } from "./categories";
 
 export type productCategories = {
   id: string;
@@ -10,16 +10,13 @@ export type productCategories = {
 
 export type ProductCategory = {
   category: CategoryName;
+  description: CategoryDescription;
   items: productCategories[];
 };
 
 export type Profile = {
   handle: string;
   avatarUrl: string;
-  tagline: string;
-  taglineSub1: string;
-  taglineSub2: string;
-  footerNote: string;
 };
 
 export type ViewMode = "list" | "gallery";
