@@ -1,8 +1,14 @@
 import { useMemo, useState } from "react";
 import { Button, Text, makeStyles, tokens } from "@fluentui/react-components";
-import { GridRegular, ListRegular, SearchRegular } from "@fluentui/react-icons";
+import {
+  GridRegular,
+  LineHorizontal3Regular,
+  ListRegular,
+  SearchRegular,
+} from "@fluentui/react-icons";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import MenuDrawer from "./components/MenuDrawer";
 import ProductSection from "./components/ProductSection";
 import SearchBar from "./components/SearchBar";
 import { profile } from "./data/profile";
@@ -16,6 +22,19 @@ const useStyles = makeStyles({
     margin: "0 auto",
     position: "relative",
     zIndex: 1,
+  },
+  menuButton: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    minWidth: "36px",
+    width: "36px",
+    height: "36px",
+    padding: 0,
+    borderRadius: "50%",
+    border: `1px solid ${tokens.colorNeutralStroke1}`,
+    backgroundColor: "rgba(255,255,255,0.03)",
+    color: tokens.colorBrandForeground2,
   },
   toolbar: {
     display: "flex",
@@ -46,6 +65,7 @@ export default function App() {
   const [view, setView] = useState<ViewMode>("gallery");
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const filteredCategories = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -71,6 +91,14 @@ export default function App() {
 
   return (
     <div className={styles.page}>
+      <Button
+        className={styles.menuButton}
+        appearance="subtle"
+        shape="circular"
+        icon={<LineHorizontal3Regular />}
+        onClick={() => setMenuOpen(true)}
+        aria-label="Open menu"
+      />
       <Header profile={profile} />
       <div className={styles.toolbar}>
         {searchOpen ? (
@@ -114,6 +142,7 @@ export default function App() {
         ))
       )}
       <Footer />
+      <MenuDrawer open={menuOpen} onClose={() => setMenuOpen(false)} />
     </div>
   );
 }
