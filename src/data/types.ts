@@ -20,3 +20,9 @@ export type Profile = {
 };
 
 export type ViewMode = "list" | "gallery";
+
+export type MenuItem = {
+  id: string;
+  label: string;
+  link?: string;
+};
