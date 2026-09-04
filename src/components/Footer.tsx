@@ -5,6 +5,21 @@ const useStyles = makeStyles({
     marginTop: "44px",
     textAlign: "center",
   },
+  note: {
+    display: "block",
+    fontSize: "11px",
+    color: tokens.colorNeutralForeground3,
+    lineHeight: "1.7",
+    textAlign: "center",
+  },
+  copyright: {
+    display: "block",
+    fontSize: "10px",
+    color: tokens.colorNeutralForeground3,
+    lineHeight: "1.7",
+    textAlign: "center",
+    marginTop: "6px",
+  },
   handle: {
     display: "block",
     fontFamily: "'Unbounded', sans-serif",
@@ -14,13 +29,6 @@ const useStyles = makeStyles({
     marginBottom: "8px",
     textAlign: "center",
   },
-  note: {
-    display: "block",
-    fontSize: "11px",
-    color: tokens.colorNeutralForeground3,
-    lineHeight: "1.7",
-    textAlign: "center",
-  },
 });
 
 export default function Footer() {
@@ -28,10 +36,9 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <Text className={styles.note}>
-        {"以上連結含分潤，購買時不會多花你任何費用，但會幫助我持續分享更多內容"}
-        <br />
-        {"個人開發需要您的愛戴 (♡˙︶˙♡)"}
+      <Text className={styles.note}>{"謝謝光臨 (,,・ω・,,)"}</Text>
+      <Text className={styles.copyright}>
+        {"© 2026 fumetothemoon. All rights reserved."}
       </Text>
       <Text className={styles.handle}>{"@fumetothemoon"}</Text>
     </footer>

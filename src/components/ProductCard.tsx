@@ -92,7 +92,7 @@ type ProductCardProps = {
 
 export default function ProductCard({ item, view }: ProductCardProps) {
   const styles = useStyles();
-  const isGallery = view === "gallery";
+  const isGallery = view === "grid";
 
   return (
     <a
@@ -115,7 +115,7 @@ export default function ProductCard({ item, view }: ProductCardProps) {
       />
       <div className={styles.info}>
         <Text className={styles.name}>{item.name}</Text>
-        <Text className={styles.note}>{item.note}</Text>
+        <Text className={styles.note}>{item.note}</Text>{" "}
       </div>
       {!isGallery && (
         <div className={styles.arrow}>
