@@ -61,6 +61,17 @@ const useStyles = makeStyles({
     overflow: "hidden",
     textOverflow: "ellipsis",
   },
+  note: {
+    display: "-webkit-box",
+    fontSize: "12px",
+    color: tokens.colorNeutralForeground3,
+    height: "36px",
+    lineHeight: "18px",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2,
+  },
   arrow: {
     flexShrink: 0,
     width: "30px",
@@ -104,6 +115,7 @@ export default function ProductCard({ item, view }: ProductCardProps) {
       />
       <div className={styles.info}>
         <Text className={styles.name}>{item.name}</Text>
+        <Text className={styles.note}>{item.note}</Text>{" "}
       </div>
       {!isGallery && (
         <div className={styles.arrow}>
