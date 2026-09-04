@@ -39,11 +39,6 @@ const useStyles = makeStyles({
     color: tokens.colorNeutralForeground3,
     fontSize: "14px",
   },
-  taglineSub2: {
-    color: tokens.colorNeutralForeground3,
-
-    fontSize: "12px",
-  },
 });
 
 type HeaderProps = {
@@ -69,10 +64,6 @@ export default function Header({ profile }: HeaderProps) {
         {"美甲愛用小物 · 分潤連結"}
         <br />
         <span className={styles.taglineSub1}>{"✦ 點擊卡片直接購買 ✦"}</span>
-        <br />
-        <span className={styles.taglineSub2}>
-          {"因為我用我自己的錢跟時間幫大家試用 所以當然要開分潤 d(`･∀･)b"}
-        </span>
       </Text>
     </header>
   );
