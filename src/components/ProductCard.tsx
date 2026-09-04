@@ -92,7 +92,7 @@ type ProductCardProps = {
 
 export default function ProductCard({ item, view }: ProductCardProps) {
   const styles = useStyles();
-  const isGallery = view === "gallery";
+  const isGallery = view === "grid";
 
   return (
     <a

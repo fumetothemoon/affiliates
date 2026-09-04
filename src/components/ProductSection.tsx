@@ -23,7 +23,7 @@ const useStyles = makeStyles({
     gap: "12px",
     marginTop: "14px",
   },
-  gallery: {
+  grid: {
     display: "grid",
     gridTemplateColumns: "repeat(2, 1fr)",
     gap: "12px",
@@ -48,7 +48,7 @@ export default function ProductSection({
         <Text className={styles.label}>{category.category}</Text>
       </Divider>
       <Text className={styles.description}>{category.description}</Text>
-      <div className={view === "gallery" ? styles.gallery : styles.list}>
+      <div className={view === "grid" ? styles.grid : styles.list}>
         {category.items.map((item) => (
           <ProductCard key={item.id} item={item} view={view} />
         ))}

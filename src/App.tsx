@@ -80,7 +80,7 @@ const useStyles = makeStyles({
 
 export default function App() {
   const styles = useStyles();
-  const [view, setView] = useState<ViewMode>("gallery");
+  const [view, setView] = useState<ViewMode>("grid");
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
 
@@ -144,14 +144,12 @@ export default function App() {
               className={styles.iconButton}
               appearance="subtle"
               shape="circular"
-              icon={view === "list" ? <GridRegular /> : <ListRegular />}
+              icon={view === "list" ? <ListRegular /> : <GridRegular />}
               onClick={() =>
-                setView((current) => (current === "list" ? "gallery" : "list"))
+                setView((current) => (current === "list" ? "grid" : "list"))
               }
               aria-label={
-                view === "list"
-                  ? "Switch to gallery view"
-                  : "Switch to list view"
+                view === "list" ? "Switch to grid view" : "Switch to list view"
               }
             />
           </>
