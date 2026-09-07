@@ -144,7 +144,7 @@ export default function App() {
               className={styles.iconButton}
               appearance="subtle"
               shape="circular"
-              icon={view === "list" ? <ListRegular /> : <GridRegular />}
+              icon={view === "list" ? <GridRegular /> : <ListRegular />}
               onClick={() =>
                 setView((current) => (current === "list" ? "grid" : "list"))
               }
