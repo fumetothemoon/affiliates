@@ -28,7 +28,7 @@ const useStyles = makeStyles({
   cardList: {
     flexDirection: "row",
   },
-  cardGallery: {
+  cardGrid: {
     display: "grid",
     gap: "10px",
   },
@@ -44,7 +44,7 @@ const useStyles = makeStyles({
     width: "64px",
     height: "64px",
   },
-  thumbGallery: {
+  thumbGrid: {
     width: "100%",
     aspectRatio: "1 / 1",
   },
@@ -92,7 +92,7 @@ type ProductCardProps = {
 
 export default function ProductCard({ item, view }: ProductCardProps) {
   const styles = useStyles();
-  const isGallery = view === "grid";
+  const isGrid = view === "grid";
 
   return (
     <a
@@ -101,13 +101,13 @@ export default function ProductCard({ item, view }: ProductCardProps) {
       rel="noopener noreferrer sponsored"
       className={mergeClasses(
         styles.card,
-        isGallery ? styles.cardGallery : styles.cardList,
+        isGrid ? styles.cardGrid : styles.cardList,
       )}
     >
       <div
         className={mergeClasses(
           styles.thumb,
-          isGallery ? styles.thumbGallery : styles.thumbList,
+          isGrid ? styles.thumbGrid : styles.thumbList,
         )}
         style={
           item.image ? { backgroundImage: `url(${item.image})` } : undefined
@@ -117,7 +117,7 @@ export default function ProductCard({ item, view }: ProductCardProps) {
         <Text className={styles.name}>{item.name}</Text>
         <Text className={styles.note}>{item.note}</Text>{" "}
       </div>
-      {!isGallery && (
+      {!isGrid && (
         <div className={styles.arrow}>
           <ArrowUpRight16Regular aria-hidden="true" />
         </div>
