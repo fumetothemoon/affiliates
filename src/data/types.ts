@@ -19,7 +19,7 @@ export type Profile = {
   avatarUrl: string;
 };
 
-export type ViewMode = "list" | "gallery";
+export type ViewMode = "list" | "grid";
 
 export type MenuItem = {
   id: string;
