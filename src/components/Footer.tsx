@@ -37,6 +37,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <Text className={styles.note}>{"謝謝光臨 (,,・ω・,,)"}</Text>
+      {/* TODO: derive year at runtime once i18n strings are introduced */}
       <Text className={styles.copyright}>
         {"© 2026 fumetothemoon. All rights reserved."}
       </Text>
