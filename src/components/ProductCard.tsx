@@ -115,7 +115,7 @@ export default function ProductCard({ item, view }: ProductCardProps) {
       />
       <div className={styles.info}>
         <Text className={styles.name}>{item.name}</Text>
-        <Text className={styles.note}>{item.note}</Text>{" "}
+        <Text className={styles.note}>{item.note}</Text>
       </div>
       {!isGrid && (
         <div className={styles.arrow}>
