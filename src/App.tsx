@@ -2,9 +2,9 @@ import { useMemo, useState } from "react";
 import { Button, Text, makeStyles, tokens } from "@fluentui/react-components";
 import {
   GridRegular,
-  LineHorizontal3Regular,
   ListRegular,
   SearchRegular,
+  ShoppingBagRegular,
 } from "@fluentui/react-icons";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -132,7 +132,7 @@ export default function App() {
         className={styles.menuButton}
         appearance="subtle"
         shape="circular"
-        icon={<LineHorizontal3Regular />}
+        icon={<ShoppingBagRegular />}
         onClick={() => setMenuOpen(true)}
         aria-label="Open menu"
       />
