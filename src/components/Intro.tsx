@@ -331,6 +331,9 @@ export default function Intro() {
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Introductory message"
       className={mergeClasses(
         styles.overlay,
         dismissing && styles.overlayDismissing,
