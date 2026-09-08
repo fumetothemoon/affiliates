@@ -10,6 +10,7 @@ import {
   tokens,
 } from "@fluentui/react-components";
 import { ArrowUpRight16Regular, DismissRegular } from "@fluentui/react-icons";
+import { useTranslation } from "react-i18next";
 import { menuItems } from "../data/menu";
 
 const useStyles = makeStyles({
@@ -68,6 +69,7 @@ type MenuDrawerProps = {
 
 export default function MenuDrawer({ open, onClose }: MenuDrawerProps) {
   const styles = useStyles();
+  const { t } = useTranslation();
 
   return (
     <OverlayDrawer
@@ -87,11 +89,11 @@ export default function MenuDrawer({ open, onClose }: MenuDrawerProps) {
               appearance="subtle"
               icon={<DismissRegular />}
               onClick={onClose}
-              aria-label="Close menu"
+              aria-label={t("menu.close")}
             />
           }
         >
-          選單
+          {t("menu.title")}
         </DrawerHeaderTitle>
       </DrawerHeader>
       <DrawerBody>
@@ -117,7 +119,7 @@ export default function MenuDrawer({ open, onClose }: MenuDrawerProps) {
                 className={mergeClasses(styles.row, styles.rowDisabled)}
               >
                 <Text className={styles.label}>{item.label}</Text>
-                <span className={styles.badge}>COMING SOON</span>
+                <span className={styles.badge}>{t("menu.comingSoon")}</span>
               </div>
             ),
           )}

@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { makeStyles, mergeClasses } from "@fluentui/react-components";
-import { introQuote } from "../data/intro";
+import { useTranslation } from "react-i18next";
 
 const PAUSE_CHARS = ".,!?：: ";
 const INTRO_HIDDEN_KEY = "affiliates:intro-hidden";
@@ -251,7 +251,9 @@ function prefersReducedMotion() {
 
 export default function Intro() {
   const styles = useStyles();
-  const chars = useRef(Array.from(introQuote)).current;
+  const { t } = useTranslation();
+  const introQuote = t("intro.quote");
+  const chars = useMemo(() => Array.from(introQuote), [introQuote]);
   const reduceMotion = useRef(prefersReducedMotion()).current;
 
   const [visible, setVisible] = useState(() => {
@@ -333,7 +335,7 @@ export default function Intro() {
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Introductory message"
+      aria-label={t("intro.ariaLabel")}
       className={mergeClasses(
         styles.overlay,
         dismissing && styles.overlayDismissing,
@@ -367,7 +369,7 @@ export default function Intro() {
           dismiss();
         }}
       >
-        skip
+        {t("intro.skip")}
       </button>
       <div className={styles.mistStage}>
         <div
@@ -421,7 +423,7 @@ export default function Intro() {
             checked={hideIntro}
             onChange={(event) => setHideIntro(event.target.checked)}
           />
-          <span>不再顯示</span>
+          <span>{t("intro.hideOption")}</span>
         </label>
         <button
           type="button"
@@ -434,7 +436,7 @@ export default function Intro() {
             dismiss();
           }}
         >
-          知道了
+          {t("intro.accept")}
         </button>
       </div>
     </div>

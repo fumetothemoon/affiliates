@@ -1,0 +1,38 @@
+{
+  "header": {
+    "tagline": "Favorite nail art picks · Affiliate links",
+    "taglineSub": "✦ Tap a card to shop directly ✦"
+  },
+  "toolbar": {
+    "openMenu": "Open menu",
+    "searchProducts": "Search products",
+    "switchToGrid": "Switch to grid view",
+    "switchToList": "Switch to list view"
+  },
+  "search": {
+    "placeholder": "Search product name",
+    "ariaLabel": "Search",
+    "close": "Close search"
+  },
+  "noResults": "No matching products found",
+  "menu": {
+    "title": "Menu",
+    "close": "Close menu",
+    "comingSoon": "COMING SOON"
+  },
+  "intro": {
+    "ariaLabel": "Introductory message",
+    "quote": "A little heartfelt note:\nI use my own money and time to try these out for everyone, so of course there are affiliate links d(`･∀･)b\nBuying through them costs you nothing extra, but helps me keep sharing more content\nIndependent creators run on your support, pretty please (♡˙︶˙♡)",
+    "hideOption": "Don't show again",
+    "accept": "Got it",
+    "skip": "skip"
+  },
+  "footer": {
+    "note": "Thanks for stopping by (,,・ω・,,)",
+    "copyright": "© {{year}} fumetothemoon. All rights reserved."
+  },
+  "language": {
+    "toggle": "切換為中文",
+    "current": "EN"
+  }
+}

@@ -46,6 +46,12 @@ Each product uses the following fields:
 
 To add a product, add an object to the relevant category's `items` array. To add a category, add an object with `category` and `items` properties to the `categories` array.
 
+## Localization
+
+The app's UI text (labels, buttons, the intro dialog, footer, etc.) is localized with [i18next](https://www.i18next.com/) and [react-i18next](https://react.i18next.com/). English and Chinese translations live in `src/i18n/locales/`. A language toggle button in the toolbar switches between them, and the choice is remembered in `localStorage`.
+
+Product catalog content (`src/data/`) is authored directly by the site owner and is not translated automatically.
+
 ## Theme
 
 The Fluent UI theme is configured in `src/theme.js`. Update the `chromeBrand` color ramp to adjust the page's brand colors.
@@ -63,6 +69,9 @@ src/
   data/
     products.js           Product catalog
     profile.js            Profile content
+  i18n/
+    index.ts              i18next configuration
+    locales/               English and Chinese translation files
   App.tsx                 Page composition
   index.css               Global styles
   main.tsx                Application entry point

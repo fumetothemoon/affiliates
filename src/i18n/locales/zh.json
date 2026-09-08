@@ -1,0 +1,38 @@
+{
+  "header": {
+    "tagline": "美甲愛用小物 · 分潤連結",
+    "taglineSub": "✦ 點擊卡片直接購買 ✦"
+  },
+  "toolbar": {
+    "openMenu": "開啟選單",
+    "searchProducts": "搜尋商品",
+    "switchToGrid": "切換為格狀檢視",
+    "switchToList": "切換為列表檢視"
+  },
+  "search": {
+    "placeholder": "搜尋商品名稱",
+    "ariaLabel": "搜尋",
+    "close": "關閉搜尋"
+  },
+  "noResults": "找不到符合的商品",
+  "menu": {
+    "title": "選單",
+    "close": "關閉選單",
+    "comingSoon": "敬請期待"
+  },
+  "intro": {
+    "ariaLabel": "介紹訊息",
+    "quote": "情勒小語: \n因為我用我自己的錢跟時間幫大家試用 所以當然要開分潤d(`･∀･)b\n購買時不會多花你任何費用 但會幫助我持續分享更多內容\n個人開發需要您的愛戴 斯咪媽ㄙㄟˋ (♡˙︶˙♡)",
+    "hideOption": "不再顯示",
+    "accept": "知道了",
+    "skip": "跳過"
+  },
+  "footer": {
+    "note": "謝謝光臨 (,,・ω・,,)",
+    "copyright": "© {{year}} fumetothemoon. All rights reserved."
+  },
+  "language": {
+    "toggle": "switch to English",
+    "current": "中文"
+  }
+}

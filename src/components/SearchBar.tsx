@@ -1,6 +1,7 @@
 import { Button, Input, makeStyles, tokens } from "@fluentui/react-components";
 import type { InputProps } from "@fluentui/react-components";
 import { DismissRegular, SearchRegular } from "@fluentui/react-icons";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   bar: {
@@ -37,6 +38,7 @@ export default function SearchBar({
   onClose,
 }: SearchBarProps) {
   const styles = useStyles();
+  const { t } = useTranslation();
 
   const handleChange: InputProps["onChange"] = (_event, data) => {
     onChange(data.value);
@@ -47,8 +49,8 @@ export default function SearchBar({
       <Input
         className={styles.input}
         contentBefore={<SearchRegular />}
-        placeholder="搜尋商品名稱"
-        aria-label="Search"
+        placeholder={t("search.placeholder")}
+        aria-label={t("search.ariaLabel")}
         value={value}
         onChange={handleChange}
         autoFocus
@@ -59,7 +61,7 @@ export default function SearchBar({
         shape="circular"
         icon={<DismissRegular />}
         onClick={onClose}
-        aria-label="Close search"
+        aria-label={t("search.close")}
       />
     </div>
   );

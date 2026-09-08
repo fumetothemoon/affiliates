@@ -1,4 +1,5 @@
 import { Text, makeStyles, tokens } from "@fluentui/react-components";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles({
   footer: {
@@ -33,13 +34,13 @@ const useStyles = makeStyles({
 
 export default function Footer() {
   const styles = useStyles();
+  const { t } = useTranslation();
 
   return (
     <footer className={styles.footer}>
-      <Text className={styles.note}>{"謝謝光臨 (,,・ω・,,)"}</Text>
-      {/* TODO: derive year at runtime once i18n strings are introduced */}
+      <Text className={styles.note}>{t("footer.note")}</Text>
       <Text className={styles.copyright}>
-        {"© 2026 fumetothemoon. All rights reserved."}
+        {t("footer.copyright", { year: new Date().getFullYear() })}
       </Text>
       <Text className={styles.handle}>{"@fumetothemoon"}</Text>
     </footer>
