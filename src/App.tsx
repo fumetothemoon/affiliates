@@ -8,6 +8,7 @@ import {
 } from "@fluentui/react-icons";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Intro from "./components/Intro";
 import MenuDrawer from "./components/MenuDrawer";
 import ProductSection from "./components/ProductSection";
 import SearchBar from "./components/SearchBar";
@@ -128,6 +129,7 @@ export default function App() {
 
   return (
     <div className={styles.page}>
+      <Intro />
       <Button
         className={styles.menuButton}
         appearance="subtle"
