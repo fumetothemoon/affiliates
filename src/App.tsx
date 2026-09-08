@@ -139,24 +139,6 @@ export default function App() {
         aria-label="Open menu"
       />
       <Header profile={profile} />
-      <blockquote className={styles.quote}>
-        <span className={styles.quoteMark} aria-hidden="true">
-          “
-        </span>
-        <Text className={styles.quoteTitle}>情勒小語</Text>
-        <Text className={styles.quoteText}>
-          <span className={styles.quoteItem}>
-            {"因為我用我自己的錢跟時間幫大家試用 所以當然要開分潤"}
-          </span>
-          <span className={styles.quoteItem}>{"d(`･∀･)b"}</span>
-          <span className={styles.quoteItem}>
-            {"購買時不會多花你任何費用 但會幫助我持續分享更多內容"}
-          </span>
-          <span className={styles.quoteItem}>
-            {"個人開發需要您的愛戴 斯咪媽ㄙㄟˋ (♡˙︶˙♡)"}
-          </span>
-        </Text>
-      </blockquote>
       <div className={styles.toolbar}>
         {searchOpen ? (
           <SearchBar value={query} onChange={setQuery} onClose={closeSearch} />

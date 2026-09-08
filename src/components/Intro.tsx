@@ -3,6 +3,7 @@ import { introQuote } from "../data/intro";
 import "./Intro.css";
 
 const PAUSE_CHARS = ".,!?：: ";
+const INTRO_HIDDEN_KEY = "affiliates:intro-hidden";
 
 function prefersReducedMotion() {
   return (
@@ -15,8 +16,11 @@ export default function Intro() {
   const chars = useRef(Array.from(introQuote)).current;
   const reduceMotion = useRef(prefersReducedMotion()).current;
 
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(
+    () => localStorage.getItem(INTRO_HIDDEN_KEY) !== "true",
+  );
   const [dismissing, setDismissing] = useState(false);
+  const [hideIntro, setHideIntro] = useState(false);
   const [popped, setPopped] = useState(reduceMotion);
   const [readyToType, setReadyToType] = useState(reduceMotion);
   const [typedCount, setTypedCount] = useState(reduceMotion ? chars.length : 0);
@@ -67,6 +71,7 @@ export default function Intro() {
   };
 
   const dismiss = () => {
+    if (hideIntro) localStorage.setItem(INTRO_HIDDEN_KEY, "true");
     setDismissing(true);
     document.documentElement.style.overflow = "";
     dismissTimer.current = setTimeout(() => setVisible(false), 1150);
@@ -81,7 +86,12 @@ export default function Intro() {
         if (!typingDone) finishTyping();
       }}
     >
-      <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
+      <svg
+        width="0"
+        height="0"
+        style={{ position: "absolute" }}
+        aria-hidden="true"
+      >
         <filter id="intro-turb">
           <feTurbulence
             type="fractalNoise"
@@ -124,6 +134,17 @@ export default function Intro() {
           {chars.slice(0, typedCount).join("")}
           <span className="intro-cursor" />
         </div>
+        <label
+          className={`intro-hide-option${typingDone ? " intro-show" : ""}`}
+          onClick={(event) => event.stopPropagation()}
+        >
+          <input
+            type="checkbox"
+            checked={hideIntro}
+            onChange={(event) => setHideIntro(event.target.checked)}
+          />
+          <span>不再顯示</span>
+        </label>
         <button
           type="button"
           className={`intro-accept${typingDone ? " intro-show" : ""}`}
@@ -132,7 +153,7 @@ export default function Intro() {
             dismiss();
           }}
         >
-          you're welcome
+          知道了
         </button>
       </div>
     </div>
