@@ -16,9 +16,15 @@ export default function Intro() {
   const chars = useRef(Array.from(introQuote)).current;
   const reduceMotion = useRef(prefersReducedMotion()).current;
 
-  const [visible, setVisible] = useState(
-    () => localStorage.getItem(INTRO_HIDDEN_KEY) !== "true",
-  );
+  const [visible, setVisible] = useState(() => {
+    if (typeof window === "undefined") return true;
+    try {
+      return window.localStorage.getItem(INTRO_HIDDEN_KEY) !== "true";
+    } catch {
+      return true;
+    }
+  });
+
   const [dismissing, setDismissing] = useState(false);
   const [hideIntro, setHideIntro] = useState(false);
   const [popped, setPopped] = useState(reduceMotion);
@@ -71,7 +77,13 @@ export default function Intro() {
   };
 
   const dismiss = () => {
-    if (hideIntro) localStorage.setItem(INTRO_HIDDEN_KEY, "true");
+    if (hideIntro) {
+      try {
+        localStorage.setItem(INTRO_HIDDEN_KEY, "true");
+      } catch {
+        // ignore write failures (storage blocked/unavailable)
+      }
+    }
     setDismissing(true);
     document.documentElement.style.overflow = "";
     dismissTimer.current = setTimeout(() => setVisible(false), 1150);
