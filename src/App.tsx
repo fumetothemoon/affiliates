@@ -1,11 +1,13 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Button, Text, makeStyles, tokens } from "@fluentui/react-components";
 import {
   GridRegular,
   ListRegular,
+  LocalLanguageRegular,
   SearchRegular,
   ShoppingBagRegular,
 } from "@fluentui/react-icons";
+import { useTranslation } from "react-i18next";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Intro from "./components/Intro";
@@ -15,6 +17,10 @@ import SearchBar from "./components/SearchBar";
 import { profile } from "./data/profile";
 import { categories } from "./data/products";
 import type { ViewMode } from "./data/types";
+import {
+  LANGUAGE_STORAGE_KEY,
+  type SupportedLanguage,
+} from "./i18n";
 
 const useStyles = makeStyles({
   page: {
@@ -100,10 +106,27 @@ const useStyles = makeStyles({
 
 export default function App() {
   const styles = useStyles();
+  const { t, i18n } = useTranslation();
   const [view, setView] = useState<ViewMode>("grid");
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.lang =
+      i18n.language === "en" ? "en" : "zh-Hant";
+  }, [i18n.language]);
+
+  const toggleLanguage = () => {
+    const nextLanguage: SupportedLanguage =
+      i18n.language === "en" ? "zh" : "en";
+    i18n.changeLanguage(nextLanguage);
+    try {
+      window.localStorage.setItem(LANGUAGE_STORAGE_KEY, nextLanguage);
+    } catch {
+      // ignore write failures (storage blocked/unavailable)
+    }
+  };
 
   const filteredCategories = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -136,7 +159,7 @@ export default function App() {
         shape="circular"
         icon={<ShoppingBagRegular />}
         onClick={() => setMenuOpen(true)}
-        aria-label="Open menu"
+        aria-label={t("toolbar.openMenu")}
       />
       <Header profile={profile} />
       <div className={styles.toolbar}>
@@ -150,7 +173,7 @@ export default function App() {
               shape="circular"
               icon={<SearchRegular aria-hidden="true" />}
               onClick={() => setSearchOpen(true)}
-              aria-label="Search products"
+              aria-label={t("toolbar.searchProducts")}
             />
             <Button
               className={styles.iconButton}
@@ -161,14 +184,24 @@ export default function App() {
                 setView((current) => (current === "list" ? "grid" : "list"))
               }
               aria-label={
-                view === "list" ? "Switch to grid view" : "Switch to list view"
+                view === "list"
+                  ? t("toolbar.switchToGrid")
+                  : t("toolbar.switchToList")
               }
+            />
+            <Button
+              className={styles.iconButton}
+              appearance="subtle"
+              shape="circular"
+              icon={<LocalLanguageRegular aria-hidden="true" />}
+              onClick={toggleLanguage}
+              aria-label={t("language.toggle")}
             />
           </>
         )}
       </div>
       {noResults ? (
-        <Text className={styles.noResults}>找不到符合的商品</Text>
+        <Text className={styles.noResults}>{t("noResults")}</Text>
       ) : (
         filteredCategories.map((category) => (
           <ProductSection

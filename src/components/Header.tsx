@@ -1,4 +1,5 @@
 import { Avatar, Text, makeStyles, tokens } from "@fluentui/react-components";
+import { useTranslation } from "react-i18next";
 import type { Profile } from "../data/types";
 
 const useStyles = makeStyles({
@@ -47,6 +48,7 @@ type HeaderProps = {
 
 export default function Header({ profile }: HeaderProps) {
   const styles = useStyles();
+  const { t } = useTranslation();
 
   return (
     <header className={styles.wrap}>
@@ -61,9 +63,9 @@ export default function Header({ profile }: HeaderProps) {
         {profile.handle}
       </Text>
       <Text className={styles.tagline}>
-        {"美甲愛用小物 · 分潤連結"}
+        {t("header.tagline")}
         <br />
-        <span className={styles.taglineSub1}>{"✦ 點擊卡片直接購買 ✦"}</span>
+        <span className={styles.taglineSub1}>{t("header.taglineSub")}</span>
       </Text>
     </header>
   );
